@@ -1,89 +1,136 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;800&display=swap');
 
 *{
-    margin: 0;
-    padding: 0;
     box-sizing: border-box;
-    font-family: 'Open Sans', sans-serif;
+    font-family: "Poppins", sans-serif;
 }
 
 body{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
-    background: #e3f2fd;
+    background-color: darkslategray;
 }
 
-.wrapper{
-    width: 65vmin;
-    height: 70vmin;
+body:before{
+    content: "";
+    background-color: seagreen;
+    filter: blur(10vh);
+
+    position: absolute;
+    bottom: 10%;
+    left: 10%;
+    width: 20%;
+    height: 20%;
+}
+
+body:after{
+    content: "";
+    background-color: goldenrod;
+    filter: blur(10vh);
+
+    position: absolute;
+    top: 20%;
+    right: 20%;
+    width: 10%;
+    height: 10%;
+}
+
+.container{
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    box-shadow: 0px 0px 1px 1px gray;
+    padding: 20px;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+
     display: flex;
-    overflow: hidden;
     flex-direction: column;
-    justify-content: center;
-    background: #293447;
-    border-radius: 5px;
-    box-shadow: 0 20px 40px rgba(52, 87, 220, 0.2);
 }
 
-.game-details{
-    color: #b8c6dc;
-    font-weight: 500;
-    font-size: 1.2rem;
-    padding: 20px 27px;
-    display: flex;
-    justify-content: space-between;
-}
-
-.play-board{
-    height: 100%;
-    width: 100%;
-    display: grid;
-    background: #212837;
-    grid-template: repeat(30, 1fr) / repeat(30, 1fr);
-}
-
-.play-board .food{
-    background: #ff003d;
-}
-
-.play-board .head{
-    background: #60cbff;
-}
-
-.controls{
-    display: none;
-    justify-content: space-between;
-}
-
-.controls i{
-    padding: 25px 0;
+.title{
+    color: white;
+    font-size: 1.5em;
+    font-weight: 700;
+    letter-spacing: 1px;
     text-align: center;
-    font-size: 1.3rem;
-    color: #b8c6dc;
-    width: calc(100% / 4);
-    cursor: pointer;
-    border-right: 1px solid #171b26;
+
+    border-bottom: 1px solid;
+    margin-bottom: 20px;
+    padding: 10px;
 }
 
-@media screen and (max-width: 800px) {
-    .wrapper{
-        width: 90vmin;
-        height: 115vmin;
-    }
+#input{
+    background-color: transparent;
+    color: white;
+    font-size: 1.2em;
+    text-align: center;
 
-    .game-details{
-        font-size: 1rem;
-        padding: 15px 27px;
-    }
+    border: 1px solid white;
+    border-radius: 4px;
 
-    .controls{
-        display: flex;
-    }
+    margin: 0px 60px 20px;
+    padding: 2px;
+}
 
-    .controls i{
-        padding: 15px 0;
-        font-size: 1rem;
-    }
+#input::placeholder{
+    color: gray;
+}
+
+#input:focus{
+    outline: none;
+}
+
+.option{
+    color: white;
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.option input{
+    height: 1.2em;
+    width: 1.2em;
+    cursor: pointer;
+}
+
+.option input:checked{
+    accent-color: aquamarine;
+}
+
+.option:nth-of-type(3){
+    border-bottom: 1px solid;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+}
+
+button{
+    background-color: transparent;
+    color: white;
+    font-size: 1.1em;
+    text-align: center;
+
+    border: 1px solid white;
+    border-radius: 4px;
+
+    margin: 0px 20px;
+    padding: 5px;
+
+    transition: all 0.5s;
+}
+
+button:hover{
+    color: aquamarine;
+    border-color: aquamarine;
+
+    cursor: pointer;
+}
+
+#result{
+    color: aquamarine;
+    font-size: 1.2em;
+    text-align: center;
+
+    padding: 10px 0px 0px;
 }
