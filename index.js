@@ -1,21 +1,38 @@
-const input = document.getElementById('input');
-const celsius = document.getElementById('celsius');
-const submit = document.getElementById('submit');
-const result = document.getElementById('result');
+const button = document.getElementById(`submit`);
+const input = document.getElementById(`input`);
+const result = document.getElementById(`result`);
+const grid = document.getElementById(`images`);
 
-let input_value, result_value;
+let random_number;
 
-submit.onclick = function(){
-    input_value = Number(input.value);
+function randomFace(){
+    return Math.floor(Math.random() * 6) + 1;
+}
 
-    if(celsius.checked == true){
-        number = (input_value - 32) * 5 / 9;
-        result_value = `${Math.round(number * 100) / 100} °C`;
+function rollDice(){
+    grid.innerHTML = ``;
+    let array = new Array;
+
+    for(let i = 1; i <= Number(input.value); i++){
+        let random_number = randomFace();
+
+        array.push(random_number);
+
+        let image = new Image();
+
+        image.src = `${random_number}.png`;
+        image.width = 100;
+        image.height = 100;
+        image.style.flexBasis = "25";
+
+        grid.appendChild(image);
     }
-    else{
-        number = (input_value) * 9 / 5 + 32;
-        result_value = `${Math.round(number * 100) / 100} °F`;
-    }
 
-    result.textContent = result_value;  
-};
+    let rolls = `Rolls:`;
+
+    for(let i = 0; i < array.length; i++){
+        i !== array.length - 1 ? rolls += ` ${array[i]},` : rolls += ` ${array[i]}`
+
+    result.textContent = rolls;
+    }
+}
